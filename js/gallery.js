@@ -63,13 +63,15 @@ const images = [
       description: "Lighthouse Coast Sea",
     },
   ];
-  
+
 
 const container = document.querySelector(".gallery");
-container.innerHTML = creareMarkup(images);
+container.innerHTML = createMarkup(images);
 
 
 container.addEventListener("click", handleProductClick);
+
+
 
 function handleProductClick(event) {
     event.preventDefault();
@@ -113,8 +115,7 @@ function handleProductClick(event) {
 };
 
 
-
-function creareMarkup (arr) {
+function createMarkup (arr) {
     return arr.map(({preview, original, description}) => `
     <li class="gallery-item">
         <a class="gallery-link" href="${original}">
@@ -122,7 +123,7 @@ function creareMarkup (arr) {
             class="gallery-image"
             src="${preview}"
             data-source="${original}"
-            alt="${description}"
+            data-description="${description}"
             width="360" 
             height="200"
         />
